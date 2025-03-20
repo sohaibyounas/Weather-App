@@ -14,7 +14,7 @@ body{
 .card{
     width: 90%;
     max-width: 500px;
-    margin: 100px auto 0px;
+    margin: 35px auto 0px;
     background: linear-gradient(135deg, #00feba, #5b548a);
     color: #fff;
     padding: 40px 35px;
@@ -70,9 +70,9 @@ body{
     margin-right: 10px;
 }
 
-.weather{
-    /* display: none; */
-}
+/* .weather{
+    display: none;
+} */
 
 .weather-icon{
     width: 170px;
@@ -100,4 +100,62 @@ body{
 .humidity, .wind {
     font-size: 28px;
     margin-top: -6px;
+}
+
+
+/* media quer 426px */
+@media screen and (max-width: 426px){
+    .details {
+        margin-top: 50px;
+        padding: 0px 10px;
+        gap: 20px;
+    }
+    
+    .col img {
+        width: 35px;
+    }
+
+    .humidity, .wind {
+        font-size: 20px;
+        margin-top: -6px;
+    }
+}
+
+/* qmedia query 375px */
+@media screen and (max-width: 376px){
+    .card {
+        margin: 35px auto 0px;
+        padding: 30px 25px;
+    }
+
+    .weather-icon {
+        width: 150px;
+        margin-top: 5px;
+    }
+
+    .weather h1 {
+        font-size: 40px;
+    }
+
+    .weather h2 {
+        font-size: 20px;
+    }
+
+    .search input {
+        padding: 0px 20px;
+        margin-right: 8px;
+        font-size: 16px;
+    }
+
+    .humidity, .wind {
+        font-size: 16px;
+    }
+
+    .col img {
+        width: 30px;
+    }
+
+    .col p{
+        font-size: 13px;
+    }
 }

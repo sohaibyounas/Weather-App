@@ -92,39 +92,31 @@ searchInput.addEventListener('keypress', (event) => {
 
 
 // oninput change
-function handleInputChange () {
+// Function to handle input changes
+function handleInputChange() {
     const input = searchInput.value.trim().toLowerCase();
-    console.log("input changed to :", input);
+    console.log('Input:', input);
+
+    if (!weatherData) {
+        console.log('Data not loaded yet');
+        return; // Exit if data isn’t ready
+    }
+
+    if (input === '') {
+        updateWeather(weatherData[0]); // Show first city (e.g., Karachi) when input is empty
+        return;
+    }
+
+    // Find the first city that starts with the input
+    const cityData = weatherData.find(c => c.city.toLowerCase().startsWith(input));
+    updateWeather(cityData);
 }
 
-if(!weatherData) {
-    alert("Weather data is still loading. Please wait.");
-    return;
-}
-
-if(input == '') {
-    updateWeather(null);
-    return;
-}
-
-// Find the first city that starts with the input
-const cityData = weatherData.find(c => c.city.toLowerCase().startsWith(input));
-console.log('Matching city data:', cityData);
-updateWeather(cityData);
-
-// Event listener for input change (real-time typing)
+// Event listener for real-time input changes
 searchInput.addEventListener('input', handleInputChange);
 
-// Event listener for search button (optional, for exact match)
+// Event listener for search button (optional)
 searchButton.addEventListener('click', () => {
-console.log('Search button clicked');
-handleInputChange(); // Reuse the same logic
-});
-
-// Event listener for Enter key (optional, for exact match)
-searchInput.addEventListener('keypress', (event) => {
-if (event.key === 'Enter') {
-    console.log('Enter key pressed');
-    handleInputChange(); // Reuse the same logic
-}
+    console.log('Button clicked');
+    handleInputChange();
 });
